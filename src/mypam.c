@@ -23,7 +23,7 @@ PAM_EXTERN int pam_sm_open_session(pam_handle_t *pamh, int flags, int argc, cons
 	system("mkdir -p \"$JAIL_DIR/$JAIL_USER/$JAIL_USER\"");
 	system("chown root:root \"$JAIL_DIR/$JAIL_USER\"");
 	system("chown \"$JAIL_USER:$JAIL_USER\" \"$JAIL_DIR/$JAIL_USER/$JAIL_USER\"");
-	system("mountpoint -q \"$JAIL_DIR/$JAIL_USER/$JAIL_USER\" || mount -o bind \"$HOME\" \"$JAIL_DIR/$JAIL_USER/$JAIL_USER\"");
+	system("mountpoint -q \"$JAIL_DIR/$JAIL_USER/$JAIL_USER\" || mount -o bind \"/home/$JAIL_USER\" \"$JAIL_DIR/$JAIL_USER/$JAIL_USER\"");
 
 	return PAM_SUCCESS; //PAM_SESSION_ERR | PAM_SUCCESS
 }
